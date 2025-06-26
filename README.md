@@ -122,6 +122,31 @@ export default defineConfig({
 
 ---
 
+## 🧩 Lucide Icons Setup
+
+```bash
+pnpm add lucide-react
+```
+
+### Example usage in a Button:
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Menu } from "lucide-react"
+
+export default function IconButton() {
+  return (
+    <Button size="icon" className="w-12 h-12 flex items-center justify-center">
+      <Menu className="size-6" />
+    </Button>
+  )
+}
+```
+
+Use `size-*` instead of `w-* h-*` to avoid Tailwind style overrides from shadcn.
+
+---
+
 ## 🚀 Start the Dev Server
 
 ```bash
