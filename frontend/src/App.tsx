@@ -1,18 +1,16 @@
 import './App.css'
 import { Button } from '@/components/ui/button'
+import Layout from '@/components/layout/Layout'
 
 function App() {
 
   return (
-    <>
-    <h1 className="text-3xl font-bold underline text-purple-500 ">    Hello world!  </h1>
-    <div className="flex items-center justify-center h-screen">
-      <div className='w-60 bg-amber-200'>
-
-      <Button className="w-full px-4 py-2">Click me</Button>
+    <Layout>
+      <div className="text-center">
+        <h2 className="text-xl mb-4">Welcome to the site</h2>
+        <Button className="px-4 py-2">Click me</Button>
       </div>
-    </div>
-    </>
+    </Layout>
   )
 }
 
