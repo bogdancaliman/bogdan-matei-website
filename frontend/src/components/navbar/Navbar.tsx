@@ -2,12 +2,13 @@ import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { useState } from "react"
+import { Link } from "react-router"
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Projects", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "About", href: "/" },
+  { label: "Works", href: "/works" },
+  { label: "Press", href: "/press" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export default function Navbar() {
@@ -20,13 +21,13 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <div className="hidden lg:flex gap-6">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
-            href={link.href}
+            to={link.href}
             className="text-sm font-medium text-gray-700 hover:text-black"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -41,14 +42,14 @@ export default function Navbar() {
           <SheetContent side="right">
             <div className="flex flex-col gap-4 mt-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="text-base font-medium text-gray-800 hover:underline"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </SheetContent>
