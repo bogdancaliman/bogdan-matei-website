@@ -6,6 +6,7 @@ A modern frontend project built with:
 - ⚡ Vite
 - 💨 Tailwind CSS
 - 🧩 shadcn/ui component system
+- 🧭 React Router v7 (Declarative Mode)
 - 📦 pnpm (via Devbox)
 - 🐧 Devbox-managed Node.js environment
 
@@ -178,6 +179,63 @@ frontend/
 ├── tailwind.config.js
 ├── tsconfig.json
 └── index.css
+```
+
+---
+
+## 🧭 React Router v7 Setup (Declarative Mode)
+
+### 1. Install
+
+```bash
+pnpm add react-router
+```
+
+### 2. Define Routes in `main.tsx`
+
+```tsx
+import { BrowserRouter, Routes, Route } from "react-router"
+import App from "./App"
+import About from "@/pages/About"
+import Works from "@/pages/Works"
+import Press from "@/pages/Press"
+import Contact from "@/pages/Contact"
+import NotFound from "@/pages/NotFound"
+
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<App />}>
+      <Route index element={<About />} />
+      <Route path="works" element={<Works />} />
+      <Route path="press" element={<Press />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>
+  </Routes>
+</BrowserRouter>
+```
+
+### 3. Enable Nested Layout in `App.tsx`
+
+```tsx
+import { Outlet } from "react-router"
+import Layout from "@/components/layout/Layout"
+
+export default function App() {
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  )
+}
+```
+
+### 4. Navigation with `<Link>`
+
+```tsx
+import { Link } from "react-router"
+
+<Link to="/works">Works</Link>
 ```
 
 ---
